@@ -8,7 +8,6 @@ import androidx.room.Update
 import com.srbastian.notes.Model.Note
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface NoteDAO {
 
@@ -22,7 +21,7 @@ interface NoteDAO {
     suspend fun delete(note : Note)
 
     @Query("DELETE FROM note_table")
-    suspend fun deleteAllNotes()
+    suspend fun deleteAllNotes(): Int
 
     @Query("SELECT * FROM NOTE_TABLE ORDER BY id ASC")
     fun getAll() : Flow<List<Note>>
