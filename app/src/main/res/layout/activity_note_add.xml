@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     android:orientation="vertical"
+    tools:actionBarNavMode="standard"
     tools:context=".View.NoteAddActivity">
 
     <EditText
@@ -42,7 +43,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnSend"
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
