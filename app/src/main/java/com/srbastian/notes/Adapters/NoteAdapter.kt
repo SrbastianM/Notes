@@ -1,6 +1,7 @@
 package com.srbastian.notes.Adapters
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,11 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.srbastian.notes.Model.Note
 import com.srbastian.notes.R
+import com.srbastian.notes.View.MainActivity
+import com.srbastian.notes.View.UpdateActivity
 
-class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(private val activity: MainActivity) :
+    RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     var notes: List<Note> = ArrayList()
 
@@ -34,17 +38,28 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        var currentNote : Note = notes[position]
+        var currentNote: Note = notes[position]
 
         holder.textViewTitle.text = currentNote.title
         holder.textViewDescription.text = currentNote.description
+
+        holder.cardView.setOnClickListener {
+            val intent = Intent(activity, UpdateActivity::class.java)
+            intent.putExtra("currentTitle", currentNote.title)
+            intent.putExtra("currentDescription", currentNote.description)
+            intent.putExtra("currentId", currentNote.id)
+            //activity result launch
+            activity.updateActivityResultLauncher.launch(intent)
+
+        }
     }
-    fun setNote(myNotes: List<Note>){
+
+    fun setNote(myNotes: List<Note>) {
         this.notes = myNotes
         notifyDataSetChanged()
     }
 
-    fun getNote(position: Int) : Note {
+    fun getNote(position: Int): Note {
         return notes[position]
     }
 }

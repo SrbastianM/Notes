@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Notes" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <attr name="icon_color" format="reference|color" />
+
+    <style name="Base.Theme.Notes" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="icon_color">@color/icon_color_light</item>
+    </style>
+
+    <style name="Base.Theme.Notes.Dark" parent="Theme.AppCompat.NoActionBar">
+        <!-- Define el color para icon_color en modo oscuro -->
+        <item name="icon_color">@color/icon_color_dark</item>
     </style>
 
     <style name="Theme.Notes" parent="Base.Theme.Notes" />
+
+    <style name="Theme.Notes.Dark" parent="Base.Theme.Notes.Dark" />
 </resources>

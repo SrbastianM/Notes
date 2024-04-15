@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Notes" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <attr name="icon_color" format="reference|color" />
+
+    <style name="Base.Theme.Notes" parent="Theme.AppCompat.NoActionBar">
+        <item name="icon_color">@color/icon_color_dark</item>
     </style>
+
+    <style name="Theme.Notes.Dark" parent="Base.Theme.Notes.Dark" />
 </resources>
