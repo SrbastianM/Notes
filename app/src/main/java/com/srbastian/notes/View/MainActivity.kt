@@ -65,7 +65,10 @@ class MainActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 noteViewModel.delete(noteAdapter.getNote(viewHolder.adapterPosition))
-
+                Toast.makeText(
+                    applicationContext, "Note Deleted",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }).attachToRecyclerView(recyclerView)
@@ -130,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    fun dialogMessage() {
+    private fun dialogMessage() {
         val dialogMessage = AlertDialog.Builder(this)
         dialogMessage.setTitle("Delete All Notes")
         dialogMessage.setMessage("If you click yes, all notes where delete, if you want to delete specific note please swipe right or left")
